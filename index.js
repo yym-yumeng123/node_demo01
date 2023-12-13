@@ -1,11 +1,17 @@
-const glob = require("glob")
+function interview(callback) {
+  setTimeout(() => {
+    const rand = Math.random() * 10
+    if (rand > 5) {
+      callback(null, "success")
+    } else {
+      callback(new Error("fail"))
+    }
+  }, 500)
+}
 
-var result = null
-console.time("glob")
-
-glob.glob(__dirname + "/**/*", function (err, res) {
-  result = res
-  console.log("got result")
+interview(function (err) {
+  if (err) {
+    console.log("cry")
+  }
+  console.log("params", params)
 })
-console.timeEnd("glob")
-console.log(1+ 1)

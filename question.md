@@ -13,7 +13,6 @@ module.exports = func minus(a, b) {
 }
 ```
 
-
 ### npm
 
 - Node.js 的包管理模块
@@ -38,17 +37,52 @@ npm uninstall glob
 - EventEmitter: 具备观察者模式 `addEventListener`
 - etc.
 
-
-### 异步: 非阻塞I/O
+### 异步: 非阻塞 I/O
 
 - I/O 即 Input/Output, 一个系统的输入和输出
-- 阻塞I/O 和非阻塞 I/O 的区别就在于系统接收输入再到输出期间, 能不能接收其他输入.
-- 非阻塞I/O => 在I/O过程中, 能不能进行其他I/O
-
+- 阻塞 I/O 和非阻塞 I/O 的区别就在于系统接收输入再到输出期间, 能不能接收其他输入.
+- 非阻塞 I/O => 在 I/O 过程中, 能不能进行其他 I/O
 
 举例:
 
-- 排队打饭: 排队 -> 等待 -> 轮到自己 -> 打菜 -> 吃饭 
+- 排队打饭: 排队 -> 等待 -> 轮到自己 -> 打菜 -> 吃饭
   - 饭堂师傅只能一份一份打饭 -> `阻塞 I/O`
 - 餐厅点餐 坐下 -> 点餐 -> 等待 -> 吃饭
   - 服务员点完菜可以服务其他人 -> `非阻塞 I/O`
+
+### 回调函数 callback
+
+- error first callback 第一个参数是 error
+- node-style callback
+
+```js
+function interview(callback) {
+  setTimeout(() => {
+    const rand = Math.random() * 10
+    if (rand > 5) {
+      callback(null, "success")
+    } else {
+      callback(new Error("fail"))
+    }
+  }, 500)
+}
+
+// 多次会产生回调地狱
+interview(function (err) {
+  if (err) {
+    console.log("cry")
+  }
+  console.log("params", params)
+  interview(function (err) {
+    interview(function (err) {
+    
+    })
+  })
+})
+
+```
+
+### 事件循环 EVENT LOOP
+
+
+
