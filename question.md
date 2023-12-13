@@ -84,5 +84,67 @@ interview(function (err) {
 
 ### 事件循环 EVENT LOOP
 
+```js
+// 模拟事件循环
+const eventloop = {
+  queue: [],
+  loop() {
+    while (this.queue.length) {
+      var callback = this.queue.shift()
+      callback()
+    }
+    setTimeout(this.loop.bind(this), 50)
+  },
+  add(callback) {
+    this.queue.push(callback)
+  },
+}
 
+eventloop.loop()
 
+setTimeout(() => {
+  eventloop.add(function () {
+    console.log("1", 1)
+  })
+}, 500)
+setTimeout(() => {
+  eventloop.add(function () {
+    console.log("2", 2)
+  })
+}, 500)
+```
+
+### promise
+
+- 当前事件循环得不到的结果, 但未来的事件循环会给到你结果
+- 是一个状态机
+  - pending
+  - fulfilled/resloved
+  - rejected
+- `.then .catch`
+  - resolved 状态的 Promise 会回调后面第一个 .then
+  - rejected 状态的 Promise 会回调后面的第一个 .catch
+- 执行 then 和 catch 会返回一个新 Promise, 该 Promise 最终状态根据 then 和 catch 的回调函数的执行结果决定
+  - 回调函数最终是 throw, Promise 是 rejected 状态
+  - 回调函数最终是 return , Promise 是 resolved 状态
+  - 回调函数 return 一个 Promise, 该 Promise 会和回调函数 return 的 Promise 状态保持一致
+
+```js
+
+!function() {
+  const promise = new Promise(function (reslove, reject) {
+    setTimeout(() => {
+      reslove(3)
+    }, 500);
+  }).then(function(res) {
+    console.log('res',res)
+  })
+
+  console.log('Promise',promise)
+  
+  setTimeout(() => {
+    console.log('promise1',promise)
+  }, 800)
+
+}()
+```
