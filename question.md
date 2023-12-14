@@ -148,3 +148,30 @@ setTimeout(() => {
 
 }()
 ```
+
+
+### async await
+
+是 promise 的语法糖
+
+异步编程的终极方案: 以同步的方式写异步
+
+- await 可以 "暂停" async function 的执行
+- await 可以以 同步的写法获取 Promise 的执行结果
+- try-catch 可以获取 await 所得到的错误
+
+穿越事件循环存在的 function
+
+
+### HTTP 服务器
+
+一个网页请求, 包含两次 HTTP 包交换
+
+- 浏览器向HTTP服务器发送请求HTTP包
+- HTTP包服务器向浏览器返回HTTP包
+
+
+HTTP 服务做什么事情
+
+- 解析进来的HTTP请求报文
+- 返回对应的 HTTP 返回报文
