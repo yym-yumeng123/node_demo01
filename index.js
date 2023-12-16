@@ -1,10 +1,11 @@
-const net = require('net')
+const Koa = require("koa")
+const fs = require("fs")
 
-const server = net.createServer((socket) => {
-  socket.on('data', (buffer) => {
-    console.log('buffer',buffer)
-  })
-})
+const app = new Koa()
+
+app.use(async (ctx) => {
+  ctx.body = fs.readFileSync(__dirname + "/source/index.htm", 'utf-8')
+} )
 
 
-server.listen(4000)
+app.listen(3000)
