@@ -1,11 +1,12 @@
-const Koa = require("koa")
-const fs = require("fs")
+const http  = require("node:http")
 
-const app = new Koa()
+const hostname = 'localhost'
+const port = 3000
 
-app.use(async (ctx) => {
-  ctx.body = fs.readFileSync(__dirname + "/source/index.htm", 'utf-8')
-} ) 
+const server = http.createServer((req,res) => {
+  res.statusCode = 200
+  res.setHeader("Content-Type", "text/plain")
+  res.end("Hello")
+})
 
-
-app.listen(3000)
+server.listen(port, hostname)

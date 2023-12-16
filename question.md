@@ -228,3 +228,30 @@ Node.js Net 模块提供了一些用于底层的网络通信的小工具，包�
 ```js
 var net = require("net")
 ```
+
+
+### HTTP 服务性能测试
+
+- 想要优化性能, 首先性能检查
+
+压力测试
+
+- ab 性能压测
+- webbench
+
+性能分析工具
+
+- profile `node --prof`
+
+
+### 设计模式
+
+- 观察者模式 `EventEmitter addEventListener`
+  对象和对象的通信问题
+- 外观模式 `jQuery`
+  - 隐藏内部实现, 暴漏外部方法
+
+设计模式规则:
+
+- 单一职责
+- 开闭原则
