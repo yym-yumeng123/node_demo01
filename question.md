@@ -177,9 +177,54 @@ HTTP 服务做什么事情
 - 返回对应的 HTTP 返回报文
 
 
-### Express
+### Express va Koa
 
-- 路由系统
-- 处理 HTTP
-- 支持 模板引擎
-- 脚手架
+- express 门槛更低, koa 更强大
+- express 封装更多东西, 开发更快速, koa 可定制
+
+
+### RPC调用用
+
+- Remote Procedure Call (远程过程调用)
+- 和 Ajax 有什么相同点
+  - 都是两个计算机之间的网络通信
+  - 双方约定数据格式
+- 和 AJax 不同点
+  - 不一定使用 DNS 作为寻址服务
+  - 应用从协议一般不适用 HTTP
+  - 基于 TCP 或 UDP
+
+
+**寻址/负载均衡**
+
+- Ajax: 使用 DNS 进行寻址
+- RPC: 使用特有服务进行寻址
+
+**TCP通信方式**
+
+- 单工通信
+- 半双工通信: 同一时间段, 只有一方往另一方通信; 轮番通信
+- 全双工通信: Client Server 自由通信
+
+**二进制协议**
+
+- 更小的数据包体积
+- 更快的编解码速率
+
+
+### Node.js Buffer 编解码二进制
+
+```js
+const { Buffer } = require('node:buffer');
+```
+
+- `proto buffer`: node  protocol-buffers 库
+
+
+### Node net 模块
+
+Node.js Net 模块提供了一些用于底层的网络通信的小工具，包含了创建服务器/客户端的方法
+
+```js
+var net = require("net")
+```

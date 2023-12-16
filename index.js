@@ -1,6 +1,10 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const net = require('net')
 
-app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+const server = net.createServer((socket) => {
+  socket.on('data', (buffer) => {
+    console.log('buffer',buffer)
+  })
+})
+
+
+server.listen(4000)
