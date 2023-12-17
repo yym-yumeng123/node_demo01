@@ -95,3 +95,12 @@ path.sep
  * js text/javascript
  * json: application/json
  */
+
+
+/**
+ * GET POST
+ * GET 获取数据 POST 提交数据
+ * GET参数在URL POST 参数放在请求体
+ * 安全性
+ * 请求大小
+ */
