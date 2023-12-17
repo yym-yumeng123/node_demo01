@@ -65,3 +65,33 @@ path.sep
  * request.method 请求方法
  * request.url 请求路径
  */
+
+
+/**
+ * 网页加载基本过程
+ * 1. 先去请求 html, 在 head 里面发现 link css, 
+ * 2. 开始请求 css 
+ * 3. 有图片就去请求图片
+ * 4. 有 script 请求js
+ * 5. DOM CSSOM => render tree
+ */
+
+
+/**
+ * 静态资源: 图片 视频 css js html 等
+ * 动态资源 经常更新的资源 => 新闻首页
+ */
+
+
+/**
+ * 绝对路径: http://atguigu.com/web
+ */
+
+/**
+ * 资源类型: mime 类型 
+ * 媒体类型: Multipurpose internet mail extensions 是一种标准, 表示文档 文件或字节流的性质和格式
+ * html:  text/html
+ * css: text/css
+ * js text/javascript
+ * json: application/json
+ */
