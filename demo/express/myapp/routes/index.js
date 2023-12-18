@@ -7,7 +7,27 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" })
 })
 
+// 记账本列表
+router.get("/account", function (req, res, next) {
+  res.send("账本列表")
+  // 假设渲染了 view 页面 列表
+  // res.render("../views/index.jade")
+})
+
+
+// 添加记录
+router.get("/account/create", function (req, res, next) {
+  res.send("创建账本")
+})
+
+// 新增记录
+router.post("/account", function (req, res, next) {
+  res.send("添加记录")
+})
+
 router.get("/portrait", (req, res) => {
+  // 获取请求体数据
+  console.log('req.body',req.body)
   res.render()
 })
 
