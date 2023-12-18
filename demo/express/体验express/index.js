@@ -1,10 +1,13 @@
 const express = require("express")
 const recordMiddleware = require("./middle")
+const homeRouter = require("./routes/homeRouter")
 const app = express()
 const port = 3000
 
+
 // 使用全局中间件函数
 app.use(recordMiddleware)
+app.use(homeRouter) // 设置路由
 
 app.get("/", (req, res) => res.send("Hello World!"))
 
