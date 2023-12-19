@@ -56,3 +56,10 @@ router.delete("/", function (req, res) {
   db.query("delete from records where id = 1", function (err, result) {})
 })
 ```
+
+### 会话控制
+
+1. cookie
+2. session 通过 cookie 传递
+   1. `npm install express-session` 中间件
+3. token

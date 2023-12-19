@@ -4,7 +4,6 @@ const homeRouter = require("./routes/homeRouter")
 const app = express()
 const port = 3000
 
-
 // 使用全局中间件函数
 app.use(recordMiddleware)
 app.use(homeRouter) // 设置路由
@@ -29,7 +28,7 @@ app.get("/routers/:id", (req, res) => {
 app.post("/response", (req, res) => {
   // 可以链式调用
   res.status(200)
-  res.set('xxx', "yyy")
+  res.set("xxx", "yyy")
   res.send("express")
 
   res.redirect("/xxx") // 跳转
@@ -41,6 +40,21 @@ app.get("/home", (req, res) => {
   res.status(200).json({
     code: 200,
   })
+})
+
+app.get("/set-cookie", (req, res) => {
+  // 设置 cookie
+  res.cookie("name", "yym", { maxAge: 60 * 1000 })
+})
+
+app.get("/delete-cookie", (req, res) => {
+  // 删除cookie
+  res.clearCookie("name")
+})
+
+app.get("/read-cookie", (req, res) => {
+  // 读取cookie
+  // install cookie-parser
 })
 
 app.all("*", (req, res) => {
