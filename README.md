@@ -63,3 +63,17 @@ router.delete("/", function (req, res) {
 2. session 通过 cookie 传递
    1. `npm install express-session` 中间件
 3. token
+
+
+### 本地域名
+
+1. 编辑文件 `C:\Windows\System32\drivers\etc\hosts`  `127.0.0.1 www.yangyumeng.com`
+  
+
+**原理**
+
+- 在地址栏输入 url 之后, 浏览器会先进行 DNS (Domain Name Search) 查询, 获取该域名对应的IP地址,
+- 请求会发送到 DNS 服务器, 可以`根据 域名返回 IP 地址`
+- 可以通过 `ipconfig/all` 查看本机的DNS服务器
+- hosts 文件也可以设置域名和IP的映射关系, 在发送请求前, 通过该文件获取域名的 IP 地址
+  - 存放 ip 和 域名的映射
