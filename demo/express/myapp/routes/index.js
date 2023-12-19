@@ -1,10 +1,14 @@
 var express = require("express")
 var router = express.Router()
 const { formidable } = require("formidable")
+const db = require("../db/db")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" })
+  db.query("select * from users", (err, users) => {
+    if (err) throw err
+    res.json(users)
+  })
 })
 
 // 记账本列表
@@ -13,7 +17,6 @@ router.get("/account", function (req, res, next) {
   // 假设渲染了 view 页面 列表
   // res.render("../views/index.jade")
 })
-
 
 // 添加记录
 router.get("/account/create", function (req, res, next) {
@@ -27,7 +30,7 @@ router.post("/account", function (req, res, next) {
 
 router.get("/portrait", (req, res) => {
   // 获取请求体数据
-  console.log('req.body',req.body)
+  console.log("req.body", req.body)
   res.render()
 })
 
