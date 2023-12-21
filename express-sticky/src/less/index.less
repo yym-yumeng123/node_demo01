@@ -1,0 +1,114 @@
+@color: #00d3aa;
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font: 14px/1.4 "Arial";
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+#header {
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+
+  .strickName {
+    display: inline-block;
+    line-height: 50px;
+    color: @color;
+  }
+  a {
+    display: inline-block;
+    line-height: 50px;
+    color: @color;
+  }
+  .user-area {
+    padding-right: 40px;
+    float: right;
+    li.log {
+      position: relative;
+      float: left;
+      margin-left: 5px;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        right: -10px;
+        bottom: 5px;
+        left: -10px;
+        top: 5px;
+        border-radius: 30px;
+        background-color: @color;
+      }
+      .icon-GitHub {
+        line-height: 50px;
+        font-size: 20px;
+        margin-right: 5px;
+        color: #fff;
+      }
+    }
+    li.show {
+      float: left;
+      margin-left: 5px;
+      line-height: 50px;
+      font-size: 20px;
+      font-family: "Brush Script Std";
+      img {
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+        border-radius: 50%;
+      }
+      .icon-dengchu {
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+    }
+  }
+  .add-note {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    .icon-zengjia {
+      font-size: 40px;
+      color: @color;
+    }
+  }
+  .setting {
+    float: right;
+    margin-left: 9px;
+    display: none;
+  }
+  span.strickName {
+    float: left;
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Brush Script Std";
+    cursor: pointer;
+  }
+  .login {
+    float: right;
+    color: #fff;
+  }
+}
+#content {
+  position: relative;
+  height: calc(100% - 50px);
+}
