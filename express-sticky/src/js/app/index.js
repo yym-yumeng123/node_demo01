@@ -1,3 +1,3 @@
-const obj = require("../mod/a")
+const Toast = require("../mod/toast").Toast
 
-console.log('1',1, obj)
+Toast("hello")
